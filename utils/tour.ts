@@ -10,22 +10,7 @@ export interface Tour {
     image: string;
     isFavorite: boolean;
   }
-  
-  export const formatDate = (dateString: string): string => {
-    const parts = dateString.split('-');
-    if (parts.length === 3) {
-      const [year, month, day] = parts;
-      return `${day}/${month}/${year}`;
-    }
-    return dateString;
-  };
-  
-  export const getSeatLabel = (seats: number): string => {
-    if (seats === 0) return "Hết chỗ";
-    if (seats >= 1 && seats <= 3) return `Chỉ còn ${seats} chỗ`;
-    return `Còn ${seats} chỗ`;
-  };
-  
+
   export const groupByCity = (tours: Tour[]) => {
     const grouped = tours.reduce((acc, tour) => {
       if (!acc[tour.city]) acc[tour.city] = [];
@@ -42,3 +27,20 @@ export interface Tour {
         return { title: city, data: cityTours };
       });
   };
+  
+  export const formatDate = (dateString: string): string => {
+    const parts = dateString.split('-');
+    if (parts.length === 3) {
+      const [year, month, day] = parts;
+      return `${day}/${month}/${year}`;
+    }
+    return dateString;
+  };
+  
+  export const getSeatLabel = (seats: number): string => {
+    if (seats === 0) return "Hết chỗ";
+    if (seats >= 1 && seats <= 3) return `Chỉ còn ${seats} chỗ`;
+    return `Còn ${seats} chỗ`;
+  };
+  
+  
